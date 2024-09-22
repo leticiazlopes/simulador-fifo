@@ -1,6 +1,6 @@
 from random import randint
 from fila import Fila
-from processo import Processo
+from processos import Processo
 
 # Instruções para o usuário
 # para as cores no terminal, checar: https://wiki.python.org.br/CoresNoTerminal

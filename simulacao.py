@@ -8,11 +8,11 @@ def fifo_escalonamento(processos):
     processos.sort(key=obter_tempo_chegada)
 
     ultimo_processo = max([p.tempo_chegada for p in processos])
+    servico_total = 0
     for processo in processos:
-        if ultimo_processo == processo.tempo_chegada:
-            ultimo_servico = processo.tempo_servico
+        servico_total += processo.tempo_servico
 
-    tempo_total = ultimo_processo + ultimo_servico
+    tempo_total = ultimo_processo + servico_total
     momento_atual = 0
     fila = []
     processo_em_andamento = None

@@ -31,7 +31,6 @@ def fifo_escalonamento(processos):
                 fila.pop(0)
 
 
-
         if processo_em_andamento is not None:
             processo_em_andamento.tempo_restante -= 1
             total_caracteres = processo_em_andamento.tempo_servico

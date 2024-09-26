@@ -12,7 +12,7 @@ def adicionar_processos():
         processos = []
         
         n = input(f'Digite a quantidade de processos desejados: ')
-        while not n.isnumeric(): # se 'n' não for numérico
+        while not n.isnumeric() or int(n) <= 0: # se 'n' não for numérico
              print('\033[31mO valor inserido é inválido. Por favor, digite um número inteiro.\033[0;0m')
              n = input(f'Digite a quantidade de processos desejados: ')
 

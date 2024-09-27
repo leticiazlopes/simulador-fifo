@@ -1,6 +1,19 @@
 from processos import adicionar_processos
 import time
 
+def instrucoes():
+    print('-'*100)
+    print('''\033[1m\033[32mOlá! Esse é um simulador de escalonamento de processos do tipo FIFO(First in, first out). 
+Você pode acessar o nosso material caso ainda tenha dúvidas sobre FIFO!
+
+O simulador pode ser usado para complementar o seu aprendizado e auxiliar nos estudos.
+Não deixe de utilizar os gráficos de Grantt vistos com o professor.
+
+Abaixo, insira a quantidade de processos que deseja analisar. Logo após, insira seus tempos de chegada e tempos de serviço.
+
+Por fim, o programa calculará: o tempo de turnaround e o tempo de espera. Além disso, mostrará o tempo de início e o tempo de término \033[0;0m''')
+    print('-'*100)
+
 def obter_tempo_chegada(processo):
     return processo.tempo_chegada
 
@@ -58,18 +71,21 @@ def fifo_escalonamento(processos):
         momento_atual += 1
 
     print("\nTodos os processos foram executados.")
-    for p in processos:
-        print(f"Processo {p.nome}: Tempo de término = {p.momento_do_termino}, Turnaround time = {p.momento_do_termino - p.tempo_chegada}")
-
-
+    # cálculo do momento de início
     for p in processos:
         p.momento_de_inicio = ((p.momento_do_termino - p.tempo_servico) + 1)
 
-
-    for p in processos: 
-        print(p.momento_de_inicio)
+    for p in processos:
+        print(f'''
+\033[1m\033[34mProcesso {p.nome}:\033[0;0m 
+Tempo de espera: {p.momento_de_inicio - p.tempo_chegada - 1}
+Tempo de início: {p.momento_de_inicio}
+Tempo de término = {p.momento_do_termino}
+Turnaround time = {p.momento_do_termino - p.tempo_chegada}''')
+        print()
 
 # Executar o simulador
+instrucoes()
 processos = adicionar_processos()
 fifo_escalonamento(processos)
 
